@@ -10,12 +10,13 @@ func MustGetNumber(chars []rune, pos int) (value int, length int) {
 	if pos >= len(chars) {
 		panic(errors.New("out of range"))
 	}
-	endPos := 0
-	for i := pos; i < len(chars); i++ {
-		endPos = i
-		if !unicode.IsDigit(chars[i]) {
+	endPos := pos + 1
+	for endPos < len(chars) {
+		isDigit := unicode.IsDigit(chars[endPos])
+		if !isDigit {
 			break
 		}
+		endPos++
 	}
 	value, err := strconv.Atoi(string(chars[pos:endPos]))
 	if err != nil {

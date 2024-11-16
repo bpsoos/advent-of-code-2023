@@ -26,7 +26,7 @@ func ParseSchematic(schmaticReader io.Reader) *Schematic {
 					Value: value,
 					Position: PartNumberPosition{
 						Start: mathx.Point{X: x, Y: y},
-						End:   mathx.Point{X: x + length-1, Y: y},
+						End:   mathx.Point{X: x + length - 1, Y: y},
 					},
 				})
 				x += length
