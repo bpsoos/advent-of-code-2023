@@ -12,6 +12,7 @@ func (PartNumberFinder) Find(schematic *Schematic) []int {
 func NewSchematic() *Schematic {
 	return &Schematic{
 		symbolPositions: make(map[string]bool),
+		PartNumbers:     make([]PartNumber, 0),
 	}
 }
 
