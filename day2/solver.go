@@ -14,6 +14,17 @@ func (solver Solver) Solve() {
 		panic(err)
 	}
 	println("day 2 solution 1:")
-	possibleGames := GameVerifier{}.Verify(bytes.NewReader(contents))
-	println(math.Sum(possibleGames))
+	println(
+		math.Sum(
+			GameVerifier{
+				BagContent: CubeSet{
+					Red:   12,
+					Green: 13,
+					Blue:  14,
+				},
+			}.Verify(
+				ParseGames(bytes.NewReader(contents)),
+			),
+		),
+	)
 }
