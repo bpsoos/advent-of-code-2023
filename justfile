@@ -4,3 +4,6 @@ run day:
 test day:
     go test -v ./day{{day}}
 
+testall:
+    go test -v ./...
+

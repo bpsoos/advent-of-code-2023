@@ -14,11 +14,11 @@ func main() {
 	solvers := map[string]Solver{
 		"day1": day1.Solver{},
 	}
-    solver, ok := solvers[day]; 
-    if !ok {
-        println("solver not found for")
-        println(day)
-        os.Exit(1)
-    }
-    solver.Solve()
+	solver, ok := solvers[day]
+	if !ok {
+		println("solver not found for")
+		println(day)
+		os.Exit(1)
+	}
+	solver.Solve()
 }
