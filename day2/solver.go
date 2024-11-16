@@ -27,4 +27,21 @@ func (solver Solver) Solve() {
 			),
 		),
 	)
+	println("day 2 solution 2:")
+	println(
+		calculatePartTwoResults(
+			MinSetFinder{}.Find(
+				ParseGames(bytes.NewReader(contents)),
+			),
+		),
+	)
+}
+
+func calculatePartTwoResults(minSets MinSets) int {
+	result := 0
+	for _, minSet := range minSets {
+		result += minSet.Red * minSet.Green * minSet.Blue
+	}
+
+	return result
 }
