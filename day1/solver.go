@@ -2,6 +2,7 @@ package day1
 
 import (
 	"bytes"
+	"fmt"
 	"os"
 )
 
@@ -12,8 +13,8 @@ func (solver Solver) Solve() {
 	if err != nil {
 		panic(err)
 	}
-	println("day 1 solution 1:")
-	println(Decrypter{}.Decrypt(bytes.NewReader(contents)))
-	println("day 1 solution 2:")
-	println(Decrypter{}.DecryptWithLetters(bytes.NewReader(contents)))
+	fmt.Println("day 1 solution 1:")
+	fmt.Println(Decrypter{}.Decrypt(bytes.NewReader(contents)))
+	fmt.Println("day 1 solution 2:")
+	fmt.Println(Decrypter{}.DecryptWithLetters(bytes.NewReader(contents)))
 }

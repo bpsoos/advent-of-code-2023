@@ -1,8 +1,9 @@
 package day2
 
 import (
-	"advent2023/math"
+	"advent2023/mathx"
 	"bytes"
+	"fmt"
 	"os"
 )
 
@@ -13,9 +14,9 @@ func (solver Solver) Solve() {
 	if err != nil {
 		panic(err)
 	}
-	println("day 2 solution 1:")
-	println(
-		math.Sum(
+	fmt.Println("day 2 solution 1:")
+	fmt.Println(
+		mathx.Sum(
 			GameVerifier{
 				BagContent: CubeSet{
 					Red:   12,
@@ -27,8 +28,8 @@ func (solver Solver) Solve() {
 			),
 		),
 	)
-	println("day 2 solution 2:")
-	println(
+	fmt.Println("day 2 solution 2:")
+	fmt.Println(
 		calculatePartTwoResults(
 			MinSetFinder{}.Find(
 				ParseGames(bytes.NewReader(contents)),

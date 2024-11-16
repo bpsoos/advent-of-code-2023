@@ -1,4 +1,4 @@
-package math
+package mathx
 
 func Sum(nums []int) int {
 	result := 0

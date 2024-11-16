@@ -3,6 +3,8 @@ package main
 import (
 	"advent2023/day1"
 	"advent2023/day2"
+	"advent2023/day3"
+	"fmt"
 	"os"
 )
 
@@ -15,11 +17,12 @@ func main() {
 	solvers := map[string]Solver{
 		"day1": day1.Solver{},
 		"day2": day2.Solver{},
+		"day3": day3.Solver{},
 	}
 	solver, ok := solvers[day]
 	if !ok {
-		println("solver not found for")
-		println(day)
+		fmt.Println("solver not found for")
+		fmt.Println(day)
 		os.Exit(1)
 	}
 	solver.Solve()

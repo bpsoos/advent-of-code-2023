@@ -1,7 +1,7 @@
 package day1
 
 import (
-	"advent2023/math"
+	"advent2023/mathx"
 	"advent2023/textprocessing"
 	"bufio"
 	"io"
@@ -41,7 +41,7 @@ func (d Decrypter) Decrypt(calibrationDocument io.Reader) int {
 		results = append(results, firstDigit*10+lastDigit)
 	}
 
-	return math.Sum(results)
+	return mathx.Sum(results)
 }
 
 func (d Decrypter) DecryptWithLetters(calibrationDocument io.Reader) int {
@@ -54,5 +54,5 @@ func (d Decrypter) DecryptWithLetters(calibrationDocument io.Reader) int {
 		results = append(results, firstDigit*10+lastDigit)
 	}
 
-	return math.Sum(results)
+	return mathx.Sum(results)
 }
