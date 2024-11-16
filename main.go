@@ -2,6 +2,7 @@ package main
 
 import (
 	"advent2023/day1"
+	"advent2023/day2"
 	"os"
 )
 
@@ -13,6 +14,7 @@ func main() {
 	day := os.Args[1]
 	solvers := map[string]Solver{
 		"day1": day1.Solver{},
+		"day2": day2.Solver{},
 	}
 	solver, ok := solvers[day]
 	if !ok {
