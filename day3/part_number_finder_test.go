@@ -251,5 +251,4 @@ func TestFindPartNumbersWithComplexSchematic(t *testing.T) {
 		t.Logf("part numbers: %v", numbers)
 		t.Logf("expected: %v", want)
 	}
-    println(mathx.Sum(numbers))
 }
