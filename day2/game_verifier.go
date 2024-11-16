@@ -20,17 +20,15 @@ func (g GameVerifier) Verify(games []Game) []int {
 loop:
 	for _, game := range games {
 		for _, set := range game.RevealedSets {
-			if set.Red > g.BagContent.Red {
-				continue loop
-			}
-			if set.Blue > g.BagContent.Blue {
-				continue loop
-			}
-			if set.Green > g.BagContent.Green {
+			if !g.isPossible(set) {
 				continue loop
 			}
 		}
 		possibleGames = append(possibleGames, game.Id)
 	}
 	return possibleGames
+}
+
+func (g GameVerifier) isPossible(set CubeSet) bool {
+	return set.Red < g.BagContent.Red && set.Blue < g.BagContent.Blue && set.Green < g.BagContent.Green
 }
