@@ -40,7 +40,7 @@ func addPartNumber(schematic *Schematic, line []rune, x int, y int) int {
 	value, length := textprocessing.MustGetNumber(line, x)
 	schematic.PartNumbers = append(schematic.PartNumbers, PartNumber{
 		Value: value,
-		Position: PartNumberPosition{
+		Position: PartPosition{
 			Start: mathx.Point{X: x, Y: y},
 			End:   mathx.Point{X: x + length - 1, Y: y},
 		},

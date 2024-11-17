@@ -22,7 +22,7 @@ func TestFindPartNumbersWithAllNumbersMatching(t *testing.T) {
 	schematic.PartNumbers = []day3.PartNumber{
 		{
 			Value: 467,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 0,
 					Y: 0,
@@ -33,7 +33,7 @@ func TestFindPartNumbersWithAllNumbersMatching(t *testing.T) {
 		},
 		{
 			Value: 35,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 2,
 					Y: 2,
@@ -63,7 +63,7 @@ func TestFindPartNumbersWithNoNumbersMatching(t *testing.T) {
 	schematic.PartNumbers = []day3.PartNumber{
 		{
 			Value: 467,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 0,
 					Y: 0,
@@ -74,7 +74,7 @@ func TestFindPartNumbersWithNoNumbersMatching(t *testing.T) {
 		},
 		{
 			Value: 35,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 2,
 					Y: 2,
@@ -135,7 +135,7 @@ func TestFindPartNumbersWithComplexSchematic(t *testing.T) {
 	schematic.PartNumbers = []day3.PartNumber{
 		{
 			Value: 467,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 0,
 					Y: 0,
@@ -146,7 +146,7 @@ func TestFindPartNumbersWithComplexSchematic(t *testing.T) {
 		},
 		{
 			Value: 114,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 5,
 					Y: 0,
@@ -157,7 +157,7 @@ func TestFindPartNumbersWithComplexSchematic(t *testing.T) {
 		},
 		{
 			Value: 35,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 2,
 					Y: 2,
@@ -168,7 +168,7 @@ func TestFindPartNumbersWithComplexSchematic(t *testing.T) {
 		},
 		{
 			Value: 633,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 6,
 					Y: 2,
@@ -179,7 +179,7 @@ func TestFindPartNumbersWithComplexSchematic(t *testing.T) {
 		},
 		{
 			Value: 617,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 0,
 					Y: 4,
@@ -190,7 +190,7 @@ func TestFindPartNumbersWithComplexSchematic(t *testing.T) {
 		},
 		{
 			Value: 58,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 7,
 					Y: 5,
@@ -201,7 +201,7 @@ func TestFindPartNumbersWithComplexSchematic(t *testing.T) {
 		},
 		{
 			Value: 592,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 2,
 					Y: 6,
@@ -212,7 +212,7 @@ func TestFindPartNumbersWithComplexSchematic(t *testing.T) {
 		},
 		{
 			Value: 755,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 6,
 					Y: 7,
@@ -223,7 +223,7 @@ func TestFindPartNumbersWithComplexSchematic(t *testing.T) {
 		},
 		{
 			Value: 664,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 1,
 					Y: 9,
@@ -234,7 +234,7 @@ func TestFindPartNumbersWithComplexSchematic(t *testing.T) {
 		},
 		{
 			Value: 598,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 5,
 					Y: 9,

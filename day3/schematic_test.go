@@ -10,7 +10,7 @@ import (
 func TestAdjPositions(t *testing.T) {
 	partNumber := day3.PartNumber{
 		Value: 35,
-		Position: day3.PartNumberPosition{
+		Position: day3.PartPosition{
 			Start: mathx.Point{
 				X: 2,
 				Y: 2,

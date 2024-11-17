@@ -23,7 +23,7 @@ func TestParseSimpleSchematic(t *testing.T) {
 	want.PartNumbers = []day3.PartNumber{
 		{
 			Value: 467,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 0,
 					Y: 0,
@@ -34,7 +34,7 @@ func TestParseSimpleSchematic(t *testing.T) {
 		},
 		{
 			Value: 35,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 2,
 					Y: 2,
@@ -66,7 +66,7 @@ func TestParseSchematicWithPartNumberOnEndOfLine(t *testing.T) {
 	want.PartNumbers = []day3.PartNumber{
 		{
 			Value: 76,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 3,
 					Y: 0,
@@ -77,7 +77,7 @@ func TestParseSchematicWithPartNumberOnEndOfLine(t *testing.T) {
 		},
 		{
 			Value: 35,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 2,
 					Y: 2,
@@ -137,7 +137,7 @@ func TestParseComplexSchematic(t *testing.T) {
 	want.PartNumbers = []day3.PartNumber{
 		{
 			Value: 467,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 0,
 					Y: 0,
@@ -148,7 +148,7 @@ func TestParseComplexSchematic(t *testing.T) {
 		},
 		{
 			Value: 114,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 5,
 					Y: 0,
@@ -159,7 +159,7 @@ func TestParseComplexSchematic(t *testing.T) {
 		},
 		{
 			Value: 35,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 2,
 					Y: 2,
@@ -170,7 +170,7 @@ func TestParseComplexSchematic(t *testing.T) {
 		},
 		{
 			Value: 633,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 6,
 					Y: 2,
@@ -181,7 +181,7 @@ func TestParseComplexSchematic(t *testing.T) {
 		},
 		{
 			Value: 617,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 0,
 					Y: 4,
@@ -192,7 +192,7 @@ func TestParseComplexSchematic(t *testing.T) {
 		},
 		{
 			Value: 58,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 7,
 					Y: 5,
@@ -203,7 +203,7 @@ func TestParseComplexSchematic(t *testing.T) {
 		},
 		{
 			Value: 592,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 2,
 					Y: 6,
@@ -214,7 +214,7 @@ func TestParseComplexSchematic(t *testing.T) {
 		},
 		{
 			Value: 755,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 6,
 					Y: 7,
@@ -225,7 +225,7 @@ func TestParseComplexSchematic(t *testing.T) {
 		},
 		{
 			Value: 664,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 1,
 					Y: 9,
@@ -236,7 +236,7 @@ func TestParseComplexSchematic(t *testing.T) {
 		},
 		{
 			Value: 598,
-			Position: day3.PartNumberPosition{
+			Position: day3.PartPosition{
 				Start: mathx.Point{
 					X: 5,
 					Y: 9,

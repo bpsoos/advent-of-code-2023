@@ -20,33 +20,37 @@ type (
 
 	PartNumber struct {
 		Value    int
-		Position PartNumberPosition
+		Position PartPosition
 	}
 
-	PartNumberPosition mathx.LineSegment
+	PartPosition mathx.LineSegment
 )
 
-func (pn PartNumber) AdjPositions() []mathx.Point {
-	positionCount := 6 + pn.Position.GetLength()*2
+func (p PartNumber) AdjPositions() []mathx.Point {
+	return p.Position.AdjPositions()
+}
+
+func (pp PartPosition) AdjPositions() []mathx.Point {
+	positionCount := 6 + pp.GetLength()*2
 	adjPositions := make([]mathx.Point, 0, positionCount)
 
-	adjPositions = append(adjPositions, mathx.Point{X: pn.Position.Start.X - 1, Y: pn.Position.Start.Y - 1})
-	adjPositions = append(adjPositions, mathx.Point{X: pn.Position.Start.X - 1, Y: pn.Position.Start.Y})
-	adjPositions = append(adjPositions, mathx.Point{X: pn.Position.Start.X - 1, Y: pn.Position.Start.Y + 1})
+	adjPositions = append(adjPositions, mathx.Point{X: pp.Start.X - 1, Y: pp.Start.Y - 1})
+	adjPositions = append(adjPositions, mathx.Point{X: pp.Start.X - 1, Y: pp.Start.Y})
+	adjPositions = append(adjPositions, mathx.Point{X: pp.Start.X - 1, Y: pp.Start.Y + 1})
 
-	adjPositions = append(adjPositions, mathx.Point{X: pn.Position.End.X + 1, Y: pn.Position.End.Y - 1})
-	adjPositions = append(adjPositions, mathx.Point{X: pn.Position.End.X + 1, Y: pn.Position.End.Y})
-	adjPositions = append(adjPositions, mathx.Point{X: pn.Position.End.X + 1, Y: pn.Position.End.Y + 1})
+	adjPositions = append(adjPositions, mathx.Point{X: pp.End.X + 1, Y: pp.End.Y - 1})
+	adjPositions = append(adjPositions, mathx.Point{X: pp.End.X + 1, Y: pp.End.Y})
+	adjPositions = append(adjPositions, mathx.Point{X: pp.End.X + 1, Y: pp.End.Y + 1})
 
-	for i := 0; i < pn.Position.GetLength(); i++ {
-		adjPositions = append(adjPositions, mathx.Point{X: pn.Position.Start.X + i, Y: pn.Position.Start.Y - 1})
-		adjPositions = append(adjPositions, mathx.Point{X: pn.Position.Start.X + i, Y: pn.Position.Start.Y + 1})
+	for i := 0; i < pp.GetLength(); i++ {
+		adjPositions = append(adjPositions, mathx.Point{X: pp.Start.X + i, Y: pp.Start.Y - 1})
+		adjPositions = append(adjPositions, mathx.Point{X: pp.Start.X + i, Y: pp.Start.Y + 1})
 	}
 
 	return adjPositions
 }
-func (pnp PartNumberPosition) GetLength() int {
-	return pnp.End.X - pnp.Start.X + 1
+func (pp PartPosition) GetLength() int {
+	return pp.End.X - pp.Start.X + 1
 }
 
 func (s *Schematic) AddSymbol(position mathx.Point) {

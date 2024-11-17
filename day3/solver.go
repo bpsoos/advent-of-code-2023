@@ -22,4 +22,5 @@ func (solver Solver) Solve() {
 			),
 		),
 	)
+	fmt.Println("day 3 solution 2")
 }
