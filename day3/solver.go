@@ -23,4 +23,11 @@ func (solver Solver) Solve() {
 		),
 	)
 	fmt.Println("day 3 solution 2")
+	fmt.Println(
+		mathx.Sum(
+			PartNumberFinder{}.FindGearRatios(
+				ParseSchematic(bytes.NewReader(rawScematic)),
+			),
+		),
+	)
 }

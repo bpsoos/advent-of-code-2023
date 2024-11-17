@@ -27,6 +27,12 @@ func ParseSchematic(schmaticReader io.Reader) *Schematic {
 				x += length
 				continue
 			}
+			if line[x] == '*' {
+				schematic.Gears = append(schematic.Gears, PartPosition{
+					Start: mathx.Point{X: x, Y: y},
+					End:   mathx.Point{X: x, Y: y},
+				})
+			}
 
 			schematic.AddSymbol(mathx.Point{X: x, Y: y})
 			x++

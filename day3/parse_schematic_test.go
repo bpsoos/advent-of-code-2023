@@ -15,6 +15,16 @@ func TestParseSimpleSchematic(t *testing.T) {
 ..35.
 `)
 	want := day3.NewSchematic()
+	want.Gears = append(want.Gears, day3.PartPosition{
+		Start: mathx.Point{
+			X: 3,
+			Y: 1,
+		},
+		End: mathx.Point{
+			X: 3,
+			Y: 1,
+		},
+	})
 	want.AddSymbol(mathx.Point{
 		X: 3,
 		Y: 1,
@@ -58,6 +68,16 @@ func TestParseSchematicWithPartNumberOnEndOfLine(t *testing.T) {
 ..35.
 `)
 	want := day3.NewSchematic()
+	want.Gears = append(want.Gears, day3.PartPosition{
+		Start: mathx.Point{
+			X: 3,
+			Y: 1,
+		},
+		End: mathx.Point{
+			X: 3,
+			Y: 1,
+		},
+	})
 	want.AddSymbol(mathx.Point{
 		X: 3,
 		Y: 1,
@@ -109,6 +129,36 @@ func TestParseComplexSchematic(t *testing.T) {
 .664.598..
 `)
 	want := day3.NewSchematic()
+	want.Gears = append(want.Gears, day3.PartPosition{
+		Start: mathx.Point{
+			X: 3,
+			Y: 1,
+		},
+		End: mathx.Point{
+			X: 3,
+			Y: 1,
+		},
+	})
+	want.Gears = append(want.Gears, day3.PartPosition{
+		Start: mathx.Point{
+			X: 3,
+			Y: 4,
+		},
+		End: mathx.Point{
+			X: 3,
+			Y: 4,
+		},
+	})
+	want.Gears = append(want.Gears, day3.PartPosition{
+		Start: mathx.Point{
+			X: 5,
+			Y: 8,
+		},
+		End: mathx.Point{
+			X: 5,
+			Y: 8,
+		},
+	})
 	want.AddSymbol(mathx.Point{
 		X: 3,
 		Y: 1,
