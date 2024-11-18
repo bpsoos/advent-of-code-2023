@@ -27,8 +27,7 @@ func (Solver) Solve() {
 	fmt.Println("day 4 solution 1")
 	fmt.Println(
 		PointCalculator{}.Calculate(
-			ParseCards(bytes.NewReader(scratchcards)),
+			ParseCards(bytes.NewReader(bytes.TrimSpace(scratchcards))),
 		),
 	)
-
 }
