@@ -100,7 +100,7 @@ func (e AlmanacMapEntry) DstRangeStart() int {
 }
 
 func (e AlmanacMapEntry) DstRangeEnd() int {
-	return e[0] + e[2]
+	return e[0] + e[2] - 1
 }
 
 func (e AlmanacMapEntry) SrcRangeStart() int {
@@ -108,7 +108,7 @@ func (e AlmanacMapEntry) SrcRangeStart() int {
 }
 
 func (e AlmanacMapEntry) SrcRangeEnd() int {
-	return e[1] + e[2]
+	return e[1] + e[2] - 1
 }
 
 func (e AlmanacMapEntry) Offset() int {

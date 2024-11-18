@@ -78,6 +78,8 @@ func TestGetSeedCandidate(t *testing.T) {
 		{waterToSoil, 53, 57},
 		{waterToSoil, 41, 13},
 		{waterToSoil, 99, 99},
+
+		{defaultAlmanac, 97, 97},
 	}
 	for i, tt := range tests {
 		t.Run(
