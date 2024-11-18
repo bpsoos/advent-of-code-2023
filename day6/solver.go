@@ -21,6 +21,11 @@ func (Solver) Solve() {
 		),
 	)
 	fmt.Println("day 6 test solution 2")
+	fmt.Println(
+		NewWinStrategizer([]RaceTime{
+			{Time: 71530, Distance: 940200},
+		}).WinPossibilities()[0],
+	)
 
 	input := []RaceTime{
 		{Time: 53, Distance: 313},
@@ -35,4 +40,10 @@ func (Solver) Solve() {
 		),
 	)
 	fmt.Println("day 6 solution 2")
+	input = []RaceTime{
+		{Time: 53897698, Distance: 313109012141201},
+	}
+	fmt.Println(
+		NewWinStrategizer(input).WinPossibilities()[0],
+	)
 }
