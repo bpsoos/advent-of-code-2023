@@ -13,9 +13,16 @@ func (Solver) Solve() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("day 4 test solution")
+	fmt.Println("day 4 test solution 1 ")
 	fmt.Println(
 		PointCalculator{}.Calculate(
+			ParseCards(bytes.NewReader(testCards)),
+		),
+	)
+
+	fmt.Println("day 4 test solution 2 ")
+	fmt.Println(
+		PointCalculator{}.CalculateWithCopies(
 			ParseCards(bytes.NewReader(testCards)),
 		),
 	)
@@ -27,6 +34,12 @@ func (Solver) Solve() {
 	fmt.Println("day 4 solution 1")
 	fmt.Println(
 		PointCalculator{}.Calculate(
+			ParseCards(bytes.NewReader(bytes.TrimSpace(scratchcards))),
+		),
+	)
+	fmt.Println("day 4 solution 2")
+	fmt.Println(
+		PointCalculator{}.CalculateWithCopies(
 			ParseCards(bytes.NewReader(bytes.TrimSpace(scratchcards))),
 		),
 	)
