@@ -2,6 +2,7 @@ package day5
 
 import (
 	"bufio"
+	"errors"
 	"io"
 	"strconv"
 	"strings"
@@ -60,8 +61,10 @@ func getAlmanacMapEntry(line []rune) AlmanacMapEntry {
 }
 
 type Almanac struct {
-	Seeds []int
-	Maps  []AlmanacMap
+	Seeds             []int
+	Maps              []AlmanacMap
+	currentSeed       int
+	currentRangedSeed int
 }
 
 func NewAlmanac() *Almanac {
@@ -69,6 +72,23 @@ func NewAlmanac() *Almanac {
 		Seeds: make([]int, 0),
 		Maps:  make([]AlmanacMap, 0),
 	}
+}
+
+func (a *Almanac) RangedSeed() (int, error) {
+	currentRange := a.Seeds[a.currentSeed+1]
+	if a.currentRangedSeed >= currentRange {
+		a.currentRangedSeed = 0
+		a.currentSeed += 2
+	}
+
+	if a.currentSeed >= len(a.Seeds) {
+		return 0, errors.New("end of range")
+	}
+
+	seed := a.Seeds[a.currentSeed] + a.currentRangedSeed
+	a.currentRangedSeed++
+
+	return seed, nil
 }
 
 type AlmanacMap []AlmanacMapEntry
