@@ -1,4 +1,4 @@
-package day7
+package jokered
 
 import (
 	"bufio"
@@ -62,7 +62,7 @@ func parseCard(char rune) Card {
 	case 'T':
 		return Ten
 	case 'J':
-		return Jack
+		return Joker
 	case 'Q':
 		return Queen
 	case 'K':

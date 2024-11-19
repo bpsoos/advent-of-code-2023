@@ -1,5 +1,7 @@
 package day7
 
+import "slices"
+
 type Card int
 
 const (
@@ -36,19 +38,97 @@ func (h Hand) Type() HandType {
 	if h.isFiveOfAKind() {
 		return FiveOfAKind
 	}
+	if h.isFourOfAKind() {
+		return FourOfAKind
+	}
+	if h.isFullHouse() {
+		return FullHouse
+	}
+	if h.isThreeOfAKind() {
+		return ThreeOfAKind
+	}
+	if h.isTwoPair() {
+		return TwoPair
+	}
+	if h.isOnePair() {
+		return OnePair
+	}
+
 	return HighCard
 }
 
-func (h Hand) isFiveOfAKind() bool {
-	firstType := h[0]
+func (h Hand) isOnePair() bool {
+	return len(h.uniques()) == 4
+}
 
-	for i := 1; i < 5; i++ {
-		if h[i] != firstType {
-			return false
+func (h Hand) isTwoPair() bool {
+	return len(h.uniques()) == 3
+}
+
+func (h Hand) isThreeOfAKind() bool {
+	uniques := h.uniques()
+
+	if len(uniques) != 3 {
+		return false
+	}
+
+	for i := range uniques {
+		if h.count(uniques[i]) == 3 {
+			return true
 		}
 	}
 
-	return true
+	return false
+}
+
+func (h Hand) isFullHouse() bool {
+	uniques := h.uniques()
+	if len(uniques) != 2 {
+		return false
+	}
+
+	count1 := h.count(uniques[0])
+	count2 := h.count(uniques[1])
+
+	return (count1 == 2 && count2 == 3) || (count1 == 3 && count2 == 2)
+}
+
+func (h Hand) isFourOfAKind() bool {
+	for i := 0; i < 5; i++ {
+		if h.count(h[i]) == 4 {
+			return true
+		}
+	}
+
+	return false
+}
+
+func (h Hand) isFiveOfAKind() bool {
+	return h.count(h[0]) == 5
+}
+
+func (h Hand) uniques() []Card {
+	uniques := make([]Card, 0)
+
+	for i := range 5 {
+		if !slices.Contains(uniques, h[i]) {
+			uniques = append(uniques, h[i])
+		}
+	}
+
+	return uniques
+}
+
+func (h Hand) count(card Card) int {
+	count := 0
+
+	for i := range 5 {
+		if h[i] == card {
+			count++
+		}
+	}
+
+	return count
 }
 
 type Game struct {
@@ -76,5 +156,17 @@ func (g Games) Len() int {
 }
 
 func (g Games) Less(i, j int) bool {
-	return false
+	iType := g[i].Hand.Type()
+	jType := g[j].Hand.Type()
+	if iType != jType {
+		return iType < jType
+	}
+	for k := range 5 {
+		iCard := g[i].Hand[k]
+		jCard := g[j].Hand[k]
+		if iCard != jCard {
+			return iCard < jCard
+		}
+	}
+	panic("could not compare hands")
 }
