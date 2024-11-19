@@ -18,7 +18,38 @@ const (
 	Ace
 )
 
+type HandType int
+
+const (
+	HighCard HandType = iota
+	OnePair
+	TwoPair
+	ThreeOfAKind
+	FullHouse
+	FourOfAKind
+	FiveOfAKind
+)
+
 type Hand [5]Card
+
+func (h Hand) Type() HandType {
+	if h.isFiveOfAKind() {
+		return FiveOfAKind
+	}
+	return HighCard
+}
+
+func (h Hand) isFiveOfAKind() bool {
+	firstType := h[0]
+
+	for i := 1; i < 5; i++ {
+		if h[i] != firstType {
+			return false
+		}
+	}
+
+	return true
+}
 
 type Game struct {
 	Hand Hand
@@ -34,6 +65,16 @@ func NewGame() *Game {
 
 type Games []Game
 
-func (g Games) Swap(i, j int)      {}
-func (g Games) Len() int           { return 0 }
-func (g Games) Less(i, j int) bool { return false }
+func (g Games) Swap(i, j int) {
+	tmp := g[i]
+	g[i] = g[j]
+	g[j] = tmp
+}
+
+func (g Games) Len() int {
+	return len(g)
+}
+
+func (g Games) Less(i, j int) bool {
+	return false
+}
