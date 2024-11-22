@@ -1,6 +1,4 @@
-package day10
-
-import "fmt"
+package day9
 
 type Predictor struct{}
 
@@ -8,7 +6,6 @@ func (p Predictor) Predict(report Report) int {
 	sum := 0
 
 	for i := 0; i < len(report); i++ {
-		fmt.Println("-----------------")
 		res := p.predictHistory(report[i])
 		sum += res
 	}
@@ -19,7 +16,6 @@ func (p Predictor) Predict(report Report) int {
 func (Predictor) predictHistory(history History) int {
 	pastData := make([][]int, 0)
 	pastData = append(pastData, history)
-	fmt.Println(history)
 	for {
 		dataPoint := make([]int, 0)
 		for i := 1; i < len(pastData[len(pastData)-1]); i++ {
@@ -28,7 +24,6 @@ func (Predictor) predictHistory(history History) int {
 		pastData = append(pastData, dataPoint)
 
 		foundLast := true
-		fmt.Println(dataPoint)
 		for _, d := range dataPoint {
 			if d != dataPoint[0] {
 				foundLast = false
@@ -42,11 +37,7 @@ func (Predictor) predictHistory(history History) int {
 	prediction := 0
 	for i := len(pastData) - 1; i >= 0; i-- {
 		prediction = pastData[i][0] - prediction
-		fmt.Println("-----")
-		fmt.Printf("%d, %v", prediction, pastData[i])
 	}
-	fmt.Println("-----")
 
-	fmt.Println(prediction)
 	return prediction
 }
